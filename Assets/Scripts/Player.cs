@@ -5,10 +5,10 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour
 {
     [SerializeField]
-    private float perspectiveScale;
+    private GameObject dummyTopScale;
 
     [SerializeField]
-    private float scaleRatio;
+    private GameObject dummyBottomScale;
 
     private PlayerInputActions inputActions;
     private NavMeshAgent agent;
@@ -25,30 +25,31 @@ public class Player : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        followSpot = new Vector2(transform.position.x, transform.position.y);
     }
 
     // Update is called once per frame
     private void Update()
     {
         Vector3 destination = new Vector3(followSpot.x, followSpot.y, transform.position.z);
-        Debug.Log("destination: " + destination);
         agent.SetDestination(destination);
 
-       // AdjustPerspective();
+        AdjustPerspective();
     }
 
     private void Move(InputAction.CallbackContext input)
     {
-        Debug.Log("Move");
         followSpot = Camera.main.ScreenToWorldPoint(inputActions.Player.Position.ReadValue<Vector2>());
-        Debug.Log("followSpot: " + followSpot);
     }
 
     private void AdjustPerspective()
     {
-        Vector3 scale = transform.localScale;
-        scale.x = perspectiveScale * (scaleRatio - transform.position.y);
-        scale.y = perspectiveScale * (scaleRatio - transform.position.y);
-        transform.localScale = scale;
+        Vector3 bottomScale = dummyBottomScale.transform.localScale;
+        Vector3 topScale = dummyTopScale.transform.localScale;
+        float postionTop = dummyTopScale.transform.position.y;
+        float postionBottom = dummyBottomScale.transform.position.y;
+        float percentY = (transform.position.y - postionBottom) / (postionTop - postionBottom);
+        transform.localScale = Vector3.Lerp(topScale, bottomScale, 1 - percentY);
     }
 }
