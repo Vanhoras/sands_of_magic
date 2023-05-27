@@ -8,13 +8,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Background
+  - Foreground
+  - NPCs
+  - Interactibles
   - 
   - 
   - 
@@ -38,6 +38,21 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 1445019775
+    locked: 0
+  - name: Foreground
+    uniqueID: 3281060803
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player_Behind
+    uniqueID: 3363513181
+    locked: 0
+  - name: Walkables
+    uniqueID: 2852905347
+    locked: 0
+  - name: Player_Front
+    uniqueID: 1297224517
     locked: 0
