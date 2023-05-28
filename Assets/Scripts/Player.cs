@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject dummyBottomScale;
 
+    [SerializeField]
+    private GameObject shadow;
+
+    private Vector3 shadowOriginalScale;
+
     private PlayerInputActions inputActions;
     private NavMeshAgent agent;
 
@@ -34,6 +39,10 @@ public class Player : MonoBehaviour
         agent.updateUpAxis = false;
 
         lastPosition = transform.position;
+
+        shadowOriginalScale = shadow.transform.localScale;
+
+        AdjustPerspective();
     }
 
     // Update is called once per frame
@@ -45,7 +54,6 @@ public class Player : MonoBehaviour
 
         if (AgentHasStopped())
         {
-            Debug.Log("AgentHasStopped");
             moving = false;
             if (interactible != null) {
                 interactible.Trigger();
@@ -64,7 +72,6 @@ public class Player : MonoBehaviour
 
     private void Move(Vector2 inputVector)
     {
-        Debug.Log("Move");
         moving = true;
 
         followSpot = Camera.main.ScreenToWorldPoint(inputVector);
@@ -76,15 +83,18 @@ public class Player : MonoBehaviour
     private void FindInteractible(Vector2 inputVector)
     {
         Ray ray = Camera.main.ScreenPointToRay(inputVector);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+        RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
-        if (hit.collider != null)
+        foreach (RaycastHit2D hit in hits)
         {
-            GameObject hitObject = hit.transform.gameObject;
-            if (hitObject != null && hitObject.GetComponent<Interactible>() != null)
+            if (hit.collider != null)
             {
-                Debug.Log("interactible found");
-                interactible = hitObject.GetComponent<Interactible>();
+                GameObject hitObject = hit.transform.gameObject;
+                if (hitObject != null && hitObject.GetComponent<Interactible>() != null)
+                {
+                    Debug.Log("interactible found");
+                    interactible = hitObject.GetComponent<Interactible>();
+                }
             }
         }
     }
@@ -93,10 +103,14 @@ public class Player : MonoBehaviour
     {
         Vector3 bottomScale = dummyBottomScale.transform.localScale;
         Vector3 topScale = dummyTopScale.transform.localScale;
+
         float postionTop = dummyTopScale.transform.position.y;
         float postionBottom = dummyBottomScale.transform.position.y;
         float percentY = (transform.position.y - postionBottom) / (postionTop - postionBottom);
-        transform.localScale = Vector3.Lerp(topScale, bottomScale, 1 - percentY);
+
+        Vector3 resultScale = Vector3.Lerp(topScale, bottomScale, 1 - percentY);
+        transform.localScale = resultScale;
+        shadow.transform.localScale = Vector3.Scale(shadowOriginalScale, resultScale);
     }
 
     private bool AgentHasStopped()
@@ -110,11 +124,6 @@ public class Player : MonoBehaviour
         bool hasStopped = transform.position == lastPosition;
 
         lastPosition = transform.position;
-
-        if (hasStopped)
-        {
-            timeTillCheckPosition = checkLastPositionEvery;
-        }
 
         return hasStopped;
     }

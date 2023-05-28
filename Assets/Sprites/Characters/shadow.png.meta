@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48380554dc8a3cb4c91cf79accdecab5
+guid: 443d1a64d6c884940937ca54d496f70e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -42,9 +42,9 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
-  spriteMeshType: 0
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
@@ -127,112 +127,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: background_placeholder_0
-      rect:
-        serializedVersion: 2
-        x: 25
-        y: 1442
-        width: 1215
-        height: 577
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c7adec59018bbea419a4512a7426a094
-      internalID: 520925918
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: character_placeholder
-      rect:
-        serializedVersion: 2
-        x: 1318
-        y: 1444
-        width: 102
-        height: 230
-      alignment: 9
-      pivot: {x: 0.4999988, y: -0.24054804}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2a912afbf8a4fd540ae088ae3b1364cd
-      internalID: -1806290962
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background_placeholder_2
-      rect:
-        serializedVersion: 2
-        x: 1322
-        y: 1558
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91b2d2c3e6eeed944a55ab105c9f66dc
-      internalID: -530290358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rug_placeholder
-      rect:
-        serializedVersion: 2
-        x: 21
-        y: 1263
-        width: 469
-        height: 137
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2fd05e08cb38c7545a66acd3fc9edf6b
-      internalID: -1074895792
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: background_placeholder_1
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 254
-        width: 1971
-        height: 985
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d71aa4a6253017c47bb19055eab183ec
-      internalID: 31231606
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -243,12 +138,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      background_placeholder_0: 520925918
-      background_placeholder_1: 31231606
-      background_placeholder_2: -530290358
-      character_placeholder: -1806290962
-      rug_placeholder: -1074895792
+    nameFileIdTable: {}
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
