@@ -4,17 +4,6 @@ using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject dummyTopScale;
-
-    [SerializeField]
-    private GameObject dummyBottomScale;
-
-    [SerializeField]
-    private GameObject shadow;
-
-    private Vector3 shadowOriginalScale;
-
     private PlayerInputActions inputActions;
     private NavMeshAgent agent;
 
@@ -27,9 +16,18 @@ public class Player : MonoBehaviour
 
     private Interactible interactible;
 
-    // Start is called before the first frame update
+    private PlayerParent playerParent;
+    private GameObject dummyTopScale;
+    private GameObject dummyBottomScale;
+
+
     private void Start()
     {
+        playerParent = transform.parent.GetComponent<PlayerParent>();
+        dummyTopScale = playerParent.dummyTopScale;
+        dummyBottomScale = playerParent.dummyBottomScale;
+
+
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
         inputActions.Player.Click.performed += OnMouseClick;
@@ -40,8 +38,6 @@ public class Player : MonoBehaviour
 
         lastPosition = transform.position;
 
-        shadowOriginalScale = shadow.transform.localScale;
-
         AdjustPerspective();
     }
 
@@ -51,6 +47,7 @@ public class Player : MonoBehaviour
         if (!moving) return;
 
         AdjustPerspective();
+        ChangeDirection();
 
         if (AgentHasStopped())
         {
@@ -65,12 +62,12 @@ public class Player : MonoBehaviour
     private void OnMouseClick(InputAction.CallbackContext input)
     {
         Vector2 inputVector = inputActions.Player.Position.ReadValue<Vector2>();
-        Move(inputVector);
+        MoveStart(inputVector);
 
         FindInteractible(inputVector);
     }
 
-    private void Move(Vector2 inputVector)
+    private void MoveStart(Vector2 inputVector)
     {
         moving = true;
 
@@ -108,9 +105,19 @@ public class Player : MonoBehaviour
         float postionBottom = dummyBottomScale.transform.position.y;
         float percentY = (transform.position.y - postionBottom) / (postionTop - postionBottom);
 
-        Vector3 resultScale = Vector3.Lerp(topScale, bottomScale, 1 - percentY);
-        transform.localScale = resultScale;
-        shadow.transform.localScale = Vector3.Scale(shadowOriginalScale, resultScale);
+        transform.localScale = Vector3.Lerp(topScale, bottomScale, 1 - percentY);
+    }
+
+    private void ChangeDirection()
+    {
+
+        Vector3 directionVector = transform.position - lastPosition;
+
+        if (directionVector.x == 0) return;
+
+        bool left = directionVector.x < 0;
+
+        transform.rotation = left ? transform.rotation = Quaternion.Euler(0, 0, 0) : Quaternion.Euler(0, 180, 0);
     }
 
     private bool AgentHasStopped()
@@ -126,5 +133,10 @@ public class Player : MonoBehaviour
         lastPosition = transform.position;
 
         return hasStopped;
+    }
+
+    private void OnDestroy()
+    {
+        inputActions.Player.Click.performed -= OnMouseClick;
     }
 }
