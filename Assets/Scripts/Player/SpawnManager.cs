@@ -40,16 +40,17 @@ public class SpawnManager : MonoBehaviour
         if (spawnPosition == null)
         {
             spawn = GameObject.Find("DefaultSpawnpoint").transform;
-            Instantiate(DefaultPlayer, spawn.position, spawn.rotation, playerParent.transform);
-            return;
+        }
+        else
+        {
+            spawn = GameObject.Find(spawnPosition).transform;
+            spawnPosition = null;
+            if (spawn == null)
+            {
+                spawn = GameObject.Find("DefaultSpawnpoint").transform;
+            }
         }
 
-        spawnPosition = null;
-        spawn = GameObject.Find("DefaultSpawnpoint").transform;
-        if (spawn == null)
-        {
-            spawn = GameObject.Find("DefaultSpawnpoint").transform;
-        }
         Instantiate(DefaultPlayer, spawn.position, spawn.rotation, playerParent.transform);
     }
 }

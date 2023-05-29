@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2971960326115988515
 Transform:
   m_ObjectHideFlags: 0
@@ -293,8 +293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58ee8bd394a0a6e4e8d5d8694a8444e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dummyTopScale: {fileID: 0}
-  dummyBottomScale: {fileID: 0}
 --- !u!60 &2971960327152667117
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -356,7 +354,7 @@ GameObject:
   - component: {fileID: 2971960327291258264}
   - component: {fileID: 2971960327291258265}
   m_Layer: 0
-  m_Name: Light 2D
+  m_Name: LanternLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

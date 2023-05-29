@@ -20,13 +20,11 @@ public class Player : MonoBehaviour
     private GameObject dummyTopScale;
     private GameObject dummyBottomScale;
 
-
     private void Start()
     {
         playerParent = transform.parent.GetComponent<PlayerParent>();
         dummyTopScale = playerParent.dummyTopScale;
         dummyBottomScale = playerParent.dummyBottomScale;
-
 
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
@@ -39,6 +37,8 @@ public class Player : MonoBehaviour
         lastPosition = transform.position;
 
         AdjustPerspective();
+
+        FindObjectOfType<InventoryMannager>().PlayerInstance = this;
     }
 
     // Update is called once per frame
@@ -133,6 +133,11 @@ public class Player : MonoBehaviour
         lastPosition = transform.position;
 
         return hasStopped;
+    }
+
+    public void ActivateLantern()
+    {
+        transform.Find("lantern").gameObject.SetActive(true);
     }
 
     private void OnDestroy()
