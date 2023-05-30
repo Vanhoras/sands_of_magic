@@ -1,6 +1,4 @@
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.InputSystem;
 
 public class Item : Interactible
 {
@@ -11,16 +9,17 @@ public class Item : Interactible
     [SerializeField]
     public string itemName;
 
-    private InventoryMannager inventoryMannager;
-
     private void Start()
     {
-        inventoryMannager = FindObjectOfType<InventoryMannager>();
+        if (InventoryMannager.instance.WasItemAlreadyFound(itemName))
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void AddToInventory()
     {
-        inventoryMannager.AddItem(this);
+        InventoryMannager.instance.AddItem(this);
         Destroy(gameObject);
     }
 }

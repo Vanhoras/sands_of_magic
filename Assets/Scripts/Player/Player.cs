@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
         AdjustPerspective();
 
-        FindObjectOfType<InventoryMannager>().PlayerInstance = this;
+        InventoryMannager.instance.SetPlayerInstance(this);
     }
 
     // Update is called once per frame
@@ -137,6 +137,7 @@ public class Player : MonoBehaviour
 
     public void ActivateLantern()
     {
+        Debug.Log("ActivateLantern");
         transform.Find("lantern").gameObject.SetActive(true);
     }
 

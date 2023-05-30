@@ -1,34 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InventoryMannager : MonoBehaviour
 {
-    public static InventoryMannager SharedInstance { get; private set; }
+    public static InventoryMannager instance { get; private set; }
+
+    [HideInInspector]
+    private readonly List<string> foundItems = new();
+
+    [HideInInspector]
+    private bool hasLantern;
 
     private Player _player;
-    public Player PlayerInstance
-    {
-        get { return _player; }
-        set { 
-            _player = value;
-            if (HasLantern) _player.ActivateLantern();
-        }
-    }
-
-    private bool _hasLantern;
-    public bool HasLantern
-    {
-        get { return _hasLantern; }
-        set { _hasLantern = value; }
-    }
 
     private void Awake()
     {
-        if (SharedInstance == null)
+        if (instance == null)
         {
-            SharedInstance = this;
+            instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        else Destroy(this.gameObject);
+        else
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     public void AddItem(Item item)
@@ -36,11 +31,23 @@ public class InventoryMannager : MonoBehaviour
         if (item == null) return;
 
         if (item.itemName == "lantern") ActivateLantern();
+
+        foundItems.Add(item.itemName);
+    }
+
+    public bool WasItemAlreadyFound(string itemName) { 
+        return foundItems.Contains(itemName);
     }
 
     private void ActivateLantern()
     {
-        HasLantern = true;
+        this.hasLantern = true;
         _player.ActivateLantern();
+    }
+
+    public void SetPlayerInstance(Player player)
+    {
+        _player = player;
+        if (hasLantern) _player.ActivateLantern();
     }
 }
