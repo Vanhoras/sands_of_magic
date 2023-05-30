@@ -62,9 +62,9 @@ public class Player : MonoBehaviour
     private void OnMouseClick(InputAction.CallbackContext input)
     {
         Vector2 inputVector = inputActions.Player.Position.ReadValue<Vector2>();
-        MoveStart(inputVector);
-
         FindInteractible(inputVector);
+
+        MoveStart(inputVector);
     }
 
     private void MoveStart(Vector2 inputVector)
@@ -72,6 +72,11 @@ public class Player : MonoBehaviour
         moving = true;
 
         followSpot = Camera.main.ScreenToWorldPoint(inputVector);
+
+        if (interactible != null)
+        {
+            followSpot.x = followSpot.x > transform.position.x ? followSpot.x - interactible.GetDistance() : followSpot.x + interactible.GetDistance();
+        }
 
         Vector3 destination = new Vector3(followSpot.x, followSpot.y, transform.position.z);
         agent.SetDestination(destination);
