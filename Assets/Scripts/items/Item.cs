@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class Item : Interactible
 {
-
     [SerializeField]
     public Sprite sprite;
 
@@ -11,7 +10,7 @@ public class Item : Interactible
 
     private void Start()
     {
-        if (InventoryMannager.instance.WasItemAlreadyFound(itemName))
+        if (InventoryManager.instance.WasItemAlreadyFound(itemName))
         {
             Destroy(gameObject);
         }
@@ -19,7 +18,8 @@ public class Item : Interactible
 
     public void AddToInventory()
     {
-        InventoryMannager.instance.AddItem(this);
+        InventoryManager.instance.AddItem(this);
         Destroy(gameObject);
     }
+
 }

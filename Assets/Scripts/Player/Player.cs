@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
 
         AdjustPerspective();
 
-        InventoryMannager.instance.SetPlayerInstance(this);
+        InventoryManager.instance.LanternActivated += ActivateLantern;
     }
 
     // Update is called once per frame
@@ -149,5 +149,6 @@ public class Player : MonoBehaviour
     private void OnDestroy()
     {
         inputActions.Player.Click.performed -= OnMouseClick;
+        InventoryManager.instance.LanternActivated -= ActivateLantern;
     }
 }
