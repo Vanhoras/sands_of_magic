@@ -23,7 +23,6 @@ public class GenericNPC : MonoBehaviour
 
     public void OutputDialogLine()
     {
-        Debug.Log("OutputDialogLine");
         if (dialogLines.Length == 0) return;
 
         if (quipCoroutine != null) {
@@ -37,12 +36,10 @@ public class GenericNPC : MonoBehaviour
     
     private IEnumerator Quip()
     {
-        Debug.Log("Quip");
         m_TextMeshPro.text = dialogLines[currentLine];
         currentLine = currentLine + 1 == dialogLines.Length ? 0 : currentLine + 1;
         yield return new WaitForSeconds(quipDuration);
 
-        Debug.Log("Quip End");
         m_TextMeshPro.text = "";
         quipCoroutine = null;
         yield break;

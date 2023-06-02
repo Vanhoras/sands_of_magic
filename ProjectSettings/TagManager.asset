@@ -5,6 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - PlayerParent
+  - CapeController
+  - ItemDisplay1
+  - ItemDisplay2
+  - ItemDisplay3
+  - ItemDisplay4
+  - Cape
   layers:
   - Default
   - TransparentFX

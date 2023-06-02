@@ -14,6 +14,9 @@ public class InventoryManager : MonoBehaviour
     [HideInInspector]
     private bool hasLantern;
 
+    [HideInInspector]
+    private readonly List<string> interactiblesInteracted = new();
+
     public delegate void ItemAddedEventHandler(ItemData itemData);
     public delegate void EmptyEventHandler();
 
@@ -50,6 +53,13 @@ public class InventoryManager : MonoBehaviour
         foundItems.Add(item.itemName);
     }
 
+    public void RemoveItem(ItemData item)
+    {
+        if (item == null) return;
+
+        itemsInInventory.Remove(item);
+    }
+
     public bool WasItemAlreadyFound(string itemName) { 
         return foundItems.Contains(itemName);
     }
@@ -61,6 +71,16 @@ public class InventoryManager : MonoBehaviour
     }
 
     public bool IsLanternActive() { return this.hasLantern; }
+
+    public void InteractibleWasInteracted(string interactibleName)
+    {
+        interactiblesInteracted.Add(interactibleName);
+    }
+
+    public bool WasInteractibleInteracted(string interactibleName)
+    {
+        return interactiblesInteracted.Contains(interactibleName);
+    }
 
     public List<ItemData> GetItemsInInventory()
     {

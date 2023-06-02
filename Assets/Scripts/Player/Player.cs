@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
 
     private Vector2 followSpot;
     private bool moving;
+    private bool doNotMove;
 
     private Vector3 lastPosition;
     private float checkLastPositionEvery = 0.1f;
@@ -19,6 +20,8 @@ public class Player : MonoBehaviour
     private PlayerParent playerParent;
     private GameObject dummyTopScale;
     private GameObject dummyBottomScale;
+
+    private InventoryDisplay inventoryDisplay;
 
     private void Start()
     {
@@ -39,6 +42,8 @@ public class Player : MonoBehaviour
         AdjustPerspective();
 
         InventoryManager.instance.LanternActivated += ActivateLantern;
+
+        inventoryDisplay = GetComponentInChildren<InventoryDisplay>();
     }
 
     // Update is called once per frame
@@ -64,12 +69,17 @@ public class Player : MonoBehaviour
         Vector2 inputVector = inputActions.Player.Position.ReadValue<Vector2>();
         FindInteractible(inputVector);
 
-        MoveStart(inputVector);
+        if (!doNotMove)
+        {
+            MoveStart(inputVector);
+        }
+        doNotMove = false;
     }
 
     private void MoveStart(Vector2 inputVector)
     {
         moving = true;
+        inventoryDisplay.CloseCape();
 
         followSpot = Camera.main.ScreenToWorldPoint(inputVector);
 
@@ -89,14 +99,33 @@ public class Player : MonoBehaviour
 
         foreach (RaycastHit2D hit in hits)
         {
-            if (hit.collider != null)
+            if (hit.collider == null)
             {
-                GameObject hitObject = hit.transform.gameObject;
-                if (hitObject != null && hitObject.GetComponent<Interactible>() != null)
-                {
-                    Debug.Log("interactible found");
-                    interactible = hitObject.GetComponent<Interactible>();
-                }
+                continue;
+            }
+            GameObject hitObject = hit.transform.gameObject;
+            if (hitObject == null)
+            {
+                continue;
+            }
+            
+            if (hitObject.GetComponent<Interactible>() != null)
+            {
+                interactible = hitObject.GetComponent<Interactible>();
+                break;
+            }
+
+            if (hit.collider.tag == "CapeController")
+            {
+                inventoryDisplay.ToggleCape();
+                doNotMove = true;
+                break;
+            }
+
+            if (hit.collider.tag == "Cape")
+            {
+                doNotMove = true;
+                break;
             }
         }
     }
@@ -142,7 +171,6 @@ public class Player : MonoBehaviour
 
     public void ActivateLantern()
     {
-        Debug.Log("ActivateLantern");
         transform.Find("lantern").gameObject.SetActive(true);
     }
 
