@@ -225,7 +225,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  distance: 1
+  distance: 2
   sprite: {fileID: 92120133, guid: 4da3bcce362e67a4fa58385e06d2419d, type: 3}
   itemName: gem3
 --- !u!61 &7658292371118025738

@@ -153,7 +153,7 @@ TextureImporter:
       name: rooftop_1
       rect:
         serializedVersion: 2
-        x: 1349
+        x: 1352
         y: 1523
         width: 659
         height: 493
@@ -187,48 +187,6 @@ TextureImporter:
       bones: []
       spriteID: 7ac2f4eeb027b6c4380dd9cf817724c6
       internalID: 583852687
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: player_placeholder
-      rect:
-        serializedVersion: 2
-        x: 1765
-        y: 995
-        width: 107
-        height: 233
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: cf71158de878e75429e37fa1f8f3d980
-      internalID: -1139787865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: rooftop_placeholder_4
-      rect:
-        serializedVersion: 2
-        x: 1816
-        y: 992
-        width: 4
-        height: 4
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c76fe722fb1a03d4c9a581f4595d6c77
-      internalID: -1777023782
       vertices: []
       indices: 
       edges: []

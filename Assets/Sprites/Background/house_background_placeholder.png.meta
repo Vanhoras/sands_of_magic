@@ -171,27 +171,6 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: background_placeholder_2
-      rect:
-        serializedVersion: 2
-        x: 1322
-        y: 1558
-        width: 4
-        height: 8
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 91b2d2c3e6eeed944a55ab105c9f66dc
-      internalID: -530290358
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: rug_placeholder
       rect:
         serializedVersion: 2
@@ -233,6 +212,48 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: window_1
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 1714
+        width: 178
+        height: 240
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a9802818fda0447930fdacc124883e
+      internalID: -1564030443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: window_2
+      rect:
+        serializedVersion: 2
+        x: 943
+        y: 1732
+        width: 186
+        height: 228
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f1bbc27635ec074cb303565b0df4a3a
+      internalID: -2140986262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -249,6 +270,8 @@ TextureImporter:
       background_placeholder_2: -530290358
       character_placeholder: -1806290962
       rug_placeholder: -1074895792
+      window_1: -1564030443
+      window_2: -2140986262
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

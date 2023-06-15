@@ -29,6 +29,12 @@ public class Player : MonoBehaviour
         dummyTopScale = playerParent.dummyTopScale;
         dummyBottomScale = playerParent.dummyBottomScale;
 
+        if (playerParent.reflection)
+        {
+            gameObject.transform.Find("shadow").gameObject.SetActive(false);
+            gameObject.transform.Find("reflection").gameObject.SetActive(true);
+        }
+
         inputActions = new PlayerInputActions();
         inputActions.Player.Enable();
         inputActions.Player.Click.performed += OnMouseClick;
@@ -36,6 +42,8 @@ public class Player : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
+
+        agent.speed *= playerParent.speedModifier;
 
         lastPosition = transform.position;
 

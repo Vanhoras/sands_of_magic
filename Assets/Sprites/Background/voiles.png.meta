@@ -129,48 +129,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cloth_1
-      rect:
-        serializedVersion: 2
-        x: 15
-        y: 1598
-        width: 1135
-        height: 335
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ff12c66592dba4343a70938fcbc02197
-      internalID: 1502189121
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: cloth_2
-      rect:
-        serializedVersion: 2
-        x: 742
-        y: 1677
-        width: 1072
-        height: 309
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0a3f3ff3d1a1f6f4f9a7df43a432f846
-      internalID: 767916292
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: voiles_2
       rect:
         serializedVersion: 2
