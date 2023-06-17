@@ -145,4 +145,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 0fde5fa92d89b314b80887c1b71e17ab, type: 3}
   - {fileID: 8300000, guid: 7d25311e6de024e458bffac2d190c86a, type: 3}
   currentMusicState: 0
-  sfx: []
+  sfx:
+  - {fileID: 8300000, guid: 7fa09391e58a4ef42896c6c42a720c56, type: 3}
+  - {fileID: 8300000, guid: a46a00bef6b9a2642acadff52888a6a7, type: 3}
+  - {fileID: 8300000, guid: 448626bfd08d8cf46a4c9450266cf994, type: 3}

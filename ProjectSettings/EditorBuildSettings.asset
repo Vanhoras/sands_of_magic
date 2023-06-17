@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Town.unity
     guid: 994a8383e53f0004ab45fd9d41302dd9
+  - enabled: 1
+    path: Assets/Scenes/InsideOrb.unity
+    guid: 0edb833b87642f04e99be1b4c506f0b4
   m_configObjects: {}
