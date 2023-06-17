@@ -17,15 +17,13 @@ public class MusicPlayer : MonoBehaviour
     [SerializeField] 
     private MusicState currentMusicState;
 
-    /*
-    public enum UISounds
+    
+    public enum SFXSounds
     {
-        Open,
-        Hover,
-        Select,
-        Back,
-        Close
-    }*/
+        PICKUP,
+        DOOR,
+        VOICE
+    }
 
     [SerializeField] 
     private AudioClip[] sfx;
@@ -74,32 +72,24 @@ public class MusicPlayer : MonoBehaviour
         StartCoroutine(FadeOut(1f, true));
     }
 
-    /*
-    public void PlayOneShot(UISounds sound)
+    
+    public void PlayOneShot(SFXSounds sound)
     {
         switch (sound)
         {
-            case UISounds.Open:
-                musicSource.PlayOneShot(uiSounds[0]);
+            case SFXSounds.PICKUP:
+                musicSource.PlayOneShot(sfx[0]);
                 break;
-            case UISounds.Hover:
-                musicSource.PlayOneShot(uiSounds[1]);
+            case SFXSounds.DOOR:
+                musicSource.PlayOneShot(sfx[1]);
                 break;
-            case UISounds.Select:
-                musicSource.PlayOneShot(uiSounds[2]);
-                break;
-            case UISounds.Back:
-                musicSource.PlayOneShot(uiSounds[3]);
-                break;
-            case UISounds.Close:
-                musicSource.PlayOneShot(uiSounds[4]);
+            case SFXSounds.VOICE:
+                musicSource.PlayOneShot(sfx[2]);
                 break;
             default:
                 break;
         }
-
     }
-    */
 
     private IEnumerator FadeOut(float duration, bool destroy = false)
     {

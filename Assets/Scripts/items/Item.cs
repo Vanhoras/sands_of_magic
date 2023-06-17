@@ -18,6 +18,7 @@ public class Item : Interactible
 
     public void AddToInventory()
     {
+        MusicPlayer.instance.PlayOneShot(MusicPlayer.SFXSounds.PICKUP);
         InventoryManager.instance.AddItem(this);
         Destroy(gameObject);
     }

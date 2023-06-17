@@ -13,10 +13,13 @@ public class ItemDropable : MonoBehaviour
     [SerializeField]
     private string interactibleName;
 
+    private bool startTriger;
+
     private void Start()
     {
         if(InventoryManager.instance.WasInteractibleInteracted(interactibleName))
         {
+            startTriger = true;
             Trigger();
         }
     }
@@ -28,7 +31,12 @@ public class ItemDropable : MonoBehaviour
 
     public void Trigger()
     {
+        if (!startTriger)
+        {
+            MusicPlayer.instance.PlayOneShot(MusicPlayer.SFXSounds.DOOR);
+        }
         unityEvent.Invoke();
         InventoryManager.instance.InteractibleWasInteracted(interactibleName);
+        startTriger = false;
     }
 }

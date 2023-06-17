@@ -15,7 +15,10 @@ public class DoorActivator : MonoBehaviour
     [SerializeField]
     public NavMeshSurface surface;
 
-
+    public void ActivateDoorFirstTime()
+    {
+        ActivateDoor();
+    }
 
     public void ActivateDoor()
     {
