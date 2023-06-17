@@ -57,6 +57,9 @@ TagManager:
   - name: Foreground
     uniqueID: 3281060803
     locked: 0
+  - name: Orb
+    uniqueID: 1524576861
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
