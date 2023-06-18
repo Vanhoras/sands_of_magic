@@ -76,6 +76,8 @@ public class ItemDisplay : MonoBehaviour
 
     private void OnMouseLetGo(InputAction.CallbackContext input)
     {
+        if (!moving) return;
+
         Vector2 inputVector = inputActions.Player.Position.ReadValue<Vector2>();
 
         Ray ray = Camera.main.ScreenPointToRay(inputVector);

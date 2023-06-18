@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
         Vector2 inputVector = inputActions.Player.Position.ReadValue<Vector2>();
         FindInteractible(inputVector);
 
-        if (!doNotMove)
+        if (!doNotMove && !StopManager.instance.stopped)
         {
             MoveStart(inputVector);
         }
@@ -102,6 +102,8 @@ public class Player : MonoBehaviour
 
     private void FindInteractible(Vector2 inputVector)
     {
+        interactible = null;
+
         Ray ray = Camera.main.ScreenPointToRay(inputVector);
         RaycastHit2D[] hits = Physics2D.RaycastAll(ray.origin, ray.direction);
 
@@ -129,6 +131,7 @@ public class Player : MonoBehaviour
                 doNotMove = true;
                 break;
             }
+            Debug.Log("Player hitobject: " + hitObject.transform.name);
 
             if (hit.collider.tag == "Cape")
             {

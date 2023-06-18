@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2560422483176504398}
   - component: {fileID: 2560422483176504395}
   - component: {fileID: 2560422483176504396}
+  - component: {fileID: 8076585291102257477}
   m_Layer: 0
   m_Name: book
   m_TagString: Untagged
@@ -100,7 +101,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unityEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2560422483176504396}
+        m_TargetAssemblyTypeName: Book, Assembly-CSharp
+        m_MethodName: OpenBook
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   distance: 0
 --- !u!114 &2560422483176504396
 MonoBehaviour:
@@ -114,3 +127,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a840862fe5d3d4991ff74de81ba597, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bookPages:
+  - I can't get my hand on any proper information about the mechanism of the orb,
+    except the old stupid legends.
+  - I finally found an old portal near the market, which can get me to the orb. I
+    just need to understand how the mechanism works.
+--- !u!61 &8076585291102257477
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2560422483176504399}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05878663, y: 0.00904417}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.21, y: 1.03}
+    newSize: {x: 2.21, y: 1.03}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.8030162, y: 0.6772804}
+  m_EdgeRadius: 0

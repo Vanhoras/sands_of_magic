@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class Book : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    private string[] bookPages;
 
-    // Update is called once per frame
-    void Update()
+    public void OpenBook()
     {
-        
+        DialogueBoxManager.instance.OpenBook();
+        DialogueBoxManager.instance.OpenDialogue(bookPages, null);
     }
 }
