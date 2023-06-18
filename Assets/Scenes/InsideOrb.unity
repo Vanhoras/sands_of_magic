@@ -714,6 +714,161 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54fa5094b9eebab4a9dfd3b9c49a2404, type: 3}
+--- !u!1 &563891434
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 563891435}
+  - component: {fileID: 563891438}
+  - component: {fileID: 563891437}
+  - component: {fileID: 563891436}
+  m_Layer: 0
+  m_Name: God
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &563891435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563891434}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1929585665}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &563891436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563891434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fa6653504211004999f7b2cf0b12306, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueLines:
+  - "It\u2019s been an eternity since I last seen a pitiful critter like you. How
+    dare you walking into the very jail you made to rob me from my sacred magic?"
+  - "Your silence don\u2019t hide your surprise. Why are you surprised?"
+  - "Out of control? I\u2019m a God, I simply wish to destroy this pathetic city
+    and his pathetic critters who condemned me to eternal boredom and solitude."
+  - How dare you?
+  - "It would be quite a nice arrangement, But how about this: You\u2019ll open the
+    jail for me and I\u2019ll simply quit the city without harm."
+  - Of course, choose wisely small mage.
+  questions:
+  - "\u2026"
+  - "There was only old myths surrounding the source of magic, the Orb floating in
+    the center of our city. Which seems to be your jail you are talking about, I\u2019m
+    studying the orb for years now, But It seems that your magic is leaking out of
+    control recently."
+  - "But even like that you can\u2019t escape right? Not without a critter willing
+    to help you."
+  - "But\u2026 It would be the end of us all to let you like this. How about this?
+    I\u2019ll stay here and keep you company until that jail break but you\u2019ll
+    stop leaking such power onto the city."
+  - 'But we would lose our source of power. '
+--- !u!114 &563891437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563891434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b81037e35986aea45ac8b0451d956639, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 563891436}
+        m_TargetAssemblyTypeName: DialogueCharacter, Assembly-CSharp
+        m_MethodName: StartDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  distance: 0
+--- !u!60 &563891438
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 563891434}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 9.966341, y: 3.3450215}
+      - {x: 9.506572, y: 3.550979}
+      - {x: 9.281717, y: 4.2023783}
+      - {x: 9.259406, y: 4.7838135}
+      - {x: 9.136706, y: 5.1762624}
+      - {x: 6.184866, y: 5.1804624}
+      - {x: 6.1193204, y: 4.810686}
+      - {x: 5.8064504, y: 4.8423147}
+      - {x: 5.445612, y: 5.199078}
+      - {x: 4.2571464, y: 5.1974983}
+      - {x: 2.99264, y: 4.328956}
+      - {x: 2.5548935, y: 3.2738237}
+      - {x: 2.547042, y: 2.0697746}
+      - {x: 1.8682423, y: 2.5034962}
+      - {x: 0.7257588, y: 2.8104687}
+      - {x: 0.10978645, y: 2.82154}
+      - {x: -0.3086161, y: 1.7593399}
+      - {x: 0.22379375, y: 0.6603268}
+      - {x: 1.2399532, y: -0.36398727}
+      - {x: 1.8356403, y: -0.46999812}
+      - {x: 2.5799704, y: -0.9696772}
+      - {x: 5.1013947, y: -0.9969288}
+      - {x: 5.123313, y: -1.7069341}
+      - {x: 6.5615363, y: -2.1238422}
+      - {x: 6.977149, y: -2.129813}
+      - {x: 7.120775, y: -1.1815813}
+      - {x: 9.966529, y: -1.7360777}
+      - {x: 10.585252, y: -1.4864628}
+      - {x: 11.16603, y: -1.9747279}
+      - {x: 13.122833, y: -2.8455951}
+      - {x: 13.330076, y: -2.5962145}
+      - {x: 13.194959, y: -2.1422784}
+      - {x: 12.714933, y: -0.7953894}
+      - {x: 12.201575, y: 0.75568795}
 --- !u!1001 &743638297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1757,7 +1912,8 @@ Transform:
   m_LocalPosition: {x: 0.0035896301, y: -0.1526041, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 563891435}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

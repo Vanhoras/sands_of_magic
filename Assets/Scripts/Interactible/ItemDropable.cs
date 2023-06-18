@@ -5,38 +5,40 @@ using System;
 public class ItemDropable : MonoBehaviour
 {
     [SerializeField]
-    private UnityEvent unityEvent;
+    private UnityEvent<string> unityEvent;
 
     [SerializeField]
-    private string[] interactibleItems;
+    private string[] dropableItems;
 
     [SerializeField]
-    private string interactibleName;
+    private string dropableName;
 
-    private bool startTriger;
+    private bool startTrigger;
 
     private void Start()
     {
-        if(InventoryManager.instance.WasInteractibleInteracted(interactibleName))
+        string itemName = InventoryManager.instance.WasDropableInteracted(dropableName);
+
+        if (itemName != "")
         {
-            startTriger = true;
-            Trigger();
+            startTrigger = true;
+            Trigger(itemName);
         }
     }
 
     public bool IsInteractibleWithItem(string itemName)
     {
-        return Array.Exists(interactibleItems, element => element == itemName);
+        return Array.Exists(dropableItems, element => element == itemName);
     }
 
-    public void Trigger()
+    public void Trigger(string itemName)
     {
-        if (!startTriger)
+        if (!startTrigger)
         {
             MusicPlayer.instance.PlayOneShot(MusicPlayer.SFXSounds.DOOR);
         }
-        unityEvent.Invoke();
-        InventoryManager.instance.InteractibleWasInteracted(interactibleName);
-        startTriger = false;
+        unityEvent.Invoke(itemName);
+        InventoryManager.instance.DropableWasInteracted(dropableName, itemName);
+        startTrigger = false;
     }
 }

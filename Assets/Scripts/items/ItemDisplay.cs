@@ -99,9 +99,9 @@ public class ItemDisplay : MonoBehaviour
 
             if (itemDropable != null)
             {
-                if(itemDropable.IsInteractibleWithItem(item.itemName))
+                if (itemDropable.IsInteractibleWithItem(item.itemName))
                 {
-                    itemDropable.Trigger();
+                    itemDropable.Trigger(item.itemName);
                     transform.localPosition = startPosition;
                     moving = false;
                     InventoryManager.instance.RemoveItem(item);

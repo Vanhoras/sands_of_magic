@@ -31,11 +31,6 @@ public class DialogueBoxManager : MonoBehaviour
         inputActions.Player.Click.performed += OnMouseClick;
     }
 
-    private void Start()
-    {
-        CloseDialogue();
-    }
-
     private void Open()
     {
         open = true;

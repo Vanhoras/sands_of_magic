@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Intensity: 0.5
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: 00000000
+  m_ApplyToSortingLayers: d973605f0dcf8d27c30391c3000000005d237bc883e10baa4513524d
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0
@@ -185,7 +185,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1013906493
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 3
   m_Sprite: {fileID: 92120133, guid: 4da3bcce362e67a4fa58385e06d2419d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -228,6 +228,8 @@ MonoBehaviour:
   distance: 2
   sprite: {fileID: 92120133, guid: 4da3bcce362e67a4fa58385e06d2419d, type: 3}
   itemName: gem3
+  deleteOnRemove: 1
+  inConsole: 0
 --- !u!61 &7658292371118025738
 BoxCollider2D:
   m_ObjectHideFlags: 0

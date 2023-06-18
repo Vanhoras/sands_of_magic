@@ -131,7 +131,6 @@ public class Player : MonoBehaviour
                 doNotMove = true;
                 break;
             }
-            Debug.Log("Player hitobject: " + hitObject.transform.name);
 
             if (hit.collider.tag == "Cape")
             {

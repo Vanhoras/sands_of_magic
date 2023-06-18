@@ -45,6 +45,7 @@ public class DialogueText : MonoBehaviour
     public void StartDialogue(string[] textLines, string[] questions)
     {
         this.textLines = textLines;
+        this.questions = questions;
         currentLine = 0;
         StartWriting();
     }

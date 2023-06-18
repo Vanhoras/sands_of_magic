@@ -15,7 +15,7 @@ public class InventoryManager : MonoBehaviour
     private bool hasLantern;
 
     [HideInInspector]
-    private readonly List<string> interactiblesInteracted = new();
+    private readonly List<InteractedDropables> dropablesInteracted = new();
 
     public delegate void ItemAddedEventHandler(ItemData itemData);
     public delegate void EmptyEventHandler();
@@ -72,18 +72,39 @@ public class InventoryManager : MonoBehaviour
 
     public bool IsLanternActive() { return this.hasLantern; }
 
-    public void InteractibleWasInteracted(string interactibleName)
+    public void DropableWasInteracted(string dropableName, string itemName)
     {
-        interactiblesInteracted.Add(interactibleName);
+        dropablesInteracted.Add(new InteractedDropables(dropableName, itemName));
     }
 
-    public bool WasInteractibleInteracted(string interactibleName)
+    public string WasDropableInteracted(string dropableName)
     {
-        return interactiblesInteracted.Contains(interactibleName);
+        string itemName = "";
+        foreach (var dropable in dropablesInteracted)
+        {
+            if (dropable.dropableName == dropableName)
+            {
+                itemName = dropable.itemName; break;
+            }
+        }
+
+        return itemName;
     }
 
     public List<ItemData> GetItemsInInventory()
     {
         return itemsInInventory;
+    }
+}
+
+public struct InteractedDropables
+{
+    public string dropableName;
+    public string itemName;
+
+    public InteractedDropables (string dropableName, string itemName)
+    {
+        this.dropableName = dropableName;
+        this.itemName = itemName;
     }
 }
