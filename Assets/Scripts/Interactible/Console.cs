@@ -20,6 +20,11 @@ public class Console : MonoBehaviour
         if (allActivated)
         {
             doorActivator.ActivateDoor();
+
+            foreach (ConsolePart part in consoleParts)
+            {
+                part.ActivateLights();
+            }
         }
     }
 }

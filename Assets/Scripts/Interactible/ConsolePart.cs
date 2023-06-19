@@ -44,42 +44,33 @@ public class ConsolePart : MonoBehaviour
 
     public void SetGem(string currentGem)
     {
-        Debug.Log("currentGem: " + currentGem);
         this.currentGem = currentGem;
-        Debug.Log("this.currentGem: " + this.currentGem);
-
-        Debug.Log("gem1: " + gem1.itemName);
-        Debug.Log("gem2: " + gem2.itemName);
-        Debug.Log("gem3: " + gem3.itemName);
-
-        Debug.Log("HasCorrectGem: " + HasCorrectGem());
 
         if (gem1.itemName == currentGem)
         {
-            Debug.Log("gem1");
-            Debug.Log("gem1 gameObject: " + gem1.gameObject);
             gem1.gameObject.SetActive(true);
         } else if (gem2.itemName == currentGem)
         {
-            Debug.Log("gem2");
-            Debug.Log("gem2 gameObject: " + gem2.gameObject);
             gem2.gameObject.SetActive(true);
         }
         else if (gem3.itemName == currentGem)
         {
-            Debug.Log("gem3");
-            Debug.Log("gem3 gameObject: " + gem3.gameObject);
             gem3.gameObject.SetActive(true);
         }
 
         if (HasCorrectGem())
         {
-            light1.SetActive(true);
-            light2.SetActive(true);
+            ActivateLights();
         }
     }
 
-    public void RemoveGem()
+    public void ActivateLights()
+    {
+        light1.SetActive(true);
+        light2.SetActive(true);
+    }
+
+    private void RemoveGem()
     {
         gem1.gameObject.SetActive(false);
         gem2.gameObject.SetActive(false);
@@ -87,5 +78,6 @@ public class ConsolePart : MonoBehaviour
         light1.SetActive(false);
         light2.SetActive(false);
         currentGem = "";
+        InventoryManager.instance.DropableNoLongerInteracted(transform.name);
     }
 }

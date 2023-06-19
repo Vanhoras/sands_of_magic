@@ -77,6 +77,18 @@ public class InventoryManager : MonoBehaviour
         dropablesInteracted.Add(new InteractedDropables(dropableName, itemName));
     }
 
+    public void DropableNoLongerInteracted(string dropableName)
+    {
+        foreach (var dropable in dropablesInteracted)
+        {
+            if (dropable.dropableName == dropableName)
+            {
+                dropablesInteracted.Remove(dropable);
+                break;
+            }
+        }
+    }
+
     public string WasDropableInteracted(string dropableName)
     {
         string itemName = "";

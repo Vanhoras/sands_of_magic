@@ -761,27 +761,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueLines:
-  - "It\u2019s been an eternity since I last seen a pitiful critter like you. How
-    dare you walking into the very jail you made to rob me from my sacred magic?"
-  - "Your silence don\u2019t hide your surprise. Why are you surprised?"
-  - "Out of control? I\u2019m a God, I simply wish to destroy this pathetic city
-    and his pathetic critters who condemned me to eternal boredom and solitude."
+  - "It\u2019s been an eternity since I last seen a pitiful creature like you. How
+    dare you walk into the very jail you made to rob me from my sacred magic?"
+  - "Your silence doesn\u2019t hide your surprise. Why are you surprised?"
+  - "Out of control? I\u2019m a God, I simply intend to destroy this pathetic prison
+    and all the the pathetic creatures surrounding it, who condemned me to eternal
+    boredom and solitude."
   - How dare you?
-  - "It would be quite a nice arrangement, But how about this: You\u2019ll open the
-    jail for me and I\u2019ll simply quit the city without harm."
-  - Of course, choose wisely small mage.
+  - "You are mortal, destined to wither and die and I shall break free. But fine,
+    how about a deal: You\u2019ll open the jail for me and I\u2019ll leave your kind
+    alone."
+  - Of course, choose wisely small creature.
   questions:
   - "\u2026"
-  - "There was only old myths surrounding the source of magic, the Orb floating in
-    the center of our city. Which seems to be your jail you are talking about, I\u2019m
-    studying the orb for years now, But It seems that your magic is leaking out of
-    control recently."
-  - "But even like that you can\u2019t escape right? Not without a critter willing
-    to help you."
-  - "But\u2026 It would be the end of us all to let you like this. How about this?
-    I\u2019ll stay here and keep you company until that jail break but you\u2019ll
-    stop leaking such power onto the city."
-  - 'But we would lose our source of power. '
+  - You are an ancient legend. My kind only sees a magic source gone out of control.
+  - No, that won't happen. Now that I'm inside I can stabilize this prison.
+  - Were you not tired of solitude? I shall stay and keep you company.
+  - We would lose our source of power.
 --- !u!114 &563891437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,6 +872,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1801732060}
     m_Modifications:
+    - target: {fileID: 3947540781463809331, guid: d8242d4da821f8140944124872d9566e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5572973145668762208, guid: d8242d4da821f8140944124872d9566e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
