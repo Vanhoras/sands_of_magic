@@ -117,6 +117,8 @@ MonoBehaviour:
   distance: 1
   sprite: {fileID: 1227926014, guid: 4da3bcce362e67a4fa58385e06d2419d, type: 3}
   itemName: lantern
+  deleteOnRemove: 1
+  inConsole: 0
 --- !u!61 &7734896810817323807
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -195,7 +197,7 @@ MonoBehaviour:
   m_Intensity: 1
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
-  m_ApplyToSortingLayers: d973605f0dcf8d27c30391c3000000005d237bc883e10baa4513524d
+  m_ApplyToSortingLayers: d973605f0dcf8d27c30391c30000000083e10baa
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
   m_LightOrder: 0

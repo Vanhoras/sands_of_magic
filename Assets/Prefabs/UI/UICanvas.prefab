@@ -382,7 +382,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -119.40289, y: 28.86119, z: -78.0395, w: 0}
+  m_margin: {x: -134.48787, y: 28.86119, z: -78.0395, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1182,6 +1182,8 @@ MonoBehaviour:
   speed: 0.035
   textField: {fileID: 3246173702307859427}
   next: {fileID: 910980059376144405}
+  lastQuestionField1: {fileID: 0}
+  lastQuestionField2: {fileID: 0}
 --- !u!1 &9137489278689487782
 GameObject:
   m_ObjectHideFlags: 0

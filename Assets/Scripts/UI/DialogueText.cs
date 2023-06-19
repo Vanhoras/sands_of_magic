@@ -12,8 +12,16 @@ public class DialogueText : MonoBehaviour
     [SerializeField]
     private NextQuestion next;
 
+    [SerializeField]
+    private LastQuestion lastQuestionField1;
+
+    [SerializeField]
+    private LastQuestion lastQuestionField2;
+
     private string[] textLines;
     private string[] questions;
+
+    private bool lastQuestions;
 
     private bool writing;
 
@@ -42,8 +50,10 @@ public class DialogueText : MonoBehaviour
         }
     }
 
-    public void StartDialogue(string[] textLines, string[] questions)
+    public void StartDialogue(string[] textLines, string[] questions, Color color, bool lastQuestions)
     {
+        this.lastQuestions = lastQuestions;
+        //textField.color = color;
         this.textLines = textLines;
         this.questions = questions;
         currentLine = 0;
@@ -67,11 +77,17 @@ public class DialogueText : MonoBehaviour
         if (currentLine <  textLines.Length -1)
         {
             next.ShowQuestion(questions != null && questions.Length > currentLine ? questions[currentLine] : "");
+        } else if (lastQuestions && questions.Length > currentLine + 1)
+        {
+            lastQuestionField1.SetLastQuestion(questions[currentLine]);
+            lastQuestionField2.SetLastQuestion(questions[currentLine + 1]);
         }
     }
 
     public void FinishLineOrStartNextLine()
     {
+        if (lastQuestions && (!writing && currentLine >= textLines.Length - 1)) return;
+
         if (writing)
         {
             textField.text = textLines[currentLine];
@@ -85,7 +101,7 @@ public class DialogueText : MonoBehaviour
 
     public bool IsFinished()
     {
-        return !writing && currentLine >= textLines.Length -1;
+        return !lastQuestions && (!writing && currentLine >= textLines.Length -1);
     }
 
     public void EndDialogue()

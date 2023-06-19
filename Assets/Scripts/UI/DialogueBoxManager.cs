@@ -49,11 +49,11 @@ public class DialogueBoxManager : MonoBehaviour
         this.bookPage.SetActive(true);
     }
 
-    public void OpenDialogue(string[] dialogue, string[] questions)
+    public void OpenDialogue(string[] dialogue, string[] questions, Color color, bool lastQuestions)
     {
         Open();
         this.dialogueBox.gameObject.SetActive(true);
-        this.dialogueBox.StartDialogue(dialogue, questions);
+        this.dialogueBox.StartDialogue(dialogue, questions, color, lastQuestions);
         
     }
 

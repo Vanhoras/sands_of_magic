@@ -28,7 +28,11 @@ public class ItemDropable : MonoBehaviour
 
     public bool IsInteractibleWithItem(string itemName)
     {
-        return Array.Exists(dropableItems, element => element == itemName);
+        bool ineractibleWithItem = Array.Exists(dropableItems, element => element == itemName);
+
+        bool notOccupied = InventoryManager.instance.WasDropableInteracted(dropableName) == "";
+
+        return ineractibleWithItem && notOccupied;
     }
 
     public void Trigger(string itemName)

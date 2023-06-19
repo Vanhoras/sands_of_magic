@@ -8,6 +8,6 @@ public class Book : MonoBehaviour
     public void OpenBook()
     {
         DialogueBoxManager.instance.OpenBook();
-        DialogueBoxManager.instance.OpenDialogue(bookPages, null);
+        DialogueBoxManager.instance.OpenDialogue(bookPages, null, Color.white, false);
     }
 }
