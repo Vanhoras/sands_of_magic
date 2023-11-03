@@ -7,21 +7,25 @@ public class DoorActivator : MonoBehaviour
     private GameObject wall;
 
     [SerializeField]
-    private GameObject Gem;
+    private GameObject gem;
 
     [SerializeField]
-    private GameObject Lights;
+    private GameObject lights;
 
     [SerializeField]
     public NavMeshSurface surface;
 
+    [SerializeField]
+    private DoorWay doorWay;
+
     public void ActivateDoor()
     {
         wall.SetActive(false);
-        Gem.SetActive(true);
-        if (Lights != null)
+        doorWay.gameObject.SetActive(true);
+        gem.SetActive(true);
+        if (lights != null)
         {
-            Lights.SetActive(true);
+            lights.SetActive(true);
         }
         surface.BuildNavMesh();
     }

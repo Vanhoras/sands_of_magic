@@ -15,5 +15,8 @@ public class Interactible : MonoBehaviour
         unityEvent.Invoke();
     }
 
-    public float GetDistance() { return distance; } 
+    public float GetDistance() { return distance; }
+
+
+    
 }
